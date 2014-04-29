@@ -1,0 +1,12 @@
+- if @note
+  %form(action="#{@note.id}" method="post" id="edit")
+    %input(type="hidden" name="_method" value="put")
+    %textarea(name="content")
+      =@note.content
+    %input{:type => "checkbox", :name => "complete", :checked => @note.complete}
+    %input(type="submit")
+  %p
+    %a(href="#{@note.id}/delete") Delete
+
+- else
+  %p Note not found

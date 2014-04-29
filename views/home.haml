@@ -1,0 +1,18 @@
+%section{:id => "add"}
+  %form{:action => "/", :method => "post"}
+    %textarea{:name => "content", :placeholder => "Your note..."}
+    %input{:type => "submit", :value => "Take Note!"}
+
+- @notes.each do |note|
+  %article{:class => (note.complete ? "complete" : nil)}
+    %p
+      = note.content
+      %span
+        %a{:href => note.id}
+          [edit]
+      %p.links
+        %a{:href => "#{note.id}/complete"}
+          &#8623;
+      %p.meta
+        Created:
+        = note.created_at
