@@ -15,7 +15,13 @@
       %h2 'cause you're too busy to remember
 
   #main
-    = yield
+  - if flash[:notice]
+    %p.notice
+      = flash[:notice]
+  - if flash[:error]
+    %p.error
+      = flash[:error]
+  = yield
 
   %footer
     %p

@@ -2,7 +2,7 @@
   %form(action="#{@note.id}" method="post" id="edit")
     %input(type="hidden" name="_method" value="put")
     %textarea(name="content")
-      =@note.content
+      =h @note.content
     %input{:type => "checkbox", :name => "complete", :checked => @note.complete}
     %input(type="submit")
   %p

@@ -6,7 +6,7 @@
 - @notes.each do |note|
   %article{:class => (note.complete ? "complete" : nil)}
     %p
-      = note.content
+      = h note.content
       %span
         %a{:href => note.id}
           [edit]
