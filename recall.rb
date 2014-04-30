@@ -92,7 +92,11 @@ get '/:id/complete' do
   n.complete = n.complete ? 0 : 1 # flip it
   n.updated_at = Time.now
   if n.save
-    redirect '/', flash[:notice] = "Note marked as complete."
+    if n.complete
+      redirect '/', flash[:notice] = "Note marked as complete."
+    else
+      redirect '/', flash[:notice] = "Note marked as uncomplete."
+    end
   else
     redirect '/', flash[:error] = "Error marking note as complete."
   end
