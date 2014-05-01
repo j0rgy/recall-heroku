@@ -1,4 +1,4 @@
-%w(sinatra data_mapper haml sinatra/flash).each { |lib| require lib }
+%w(sinatra data_mapper haml sinatra/flash sinatra-authentication).each { |lib| require lib }
 
 enable :sessions
 
@@ -15,6 +15,7 @@ configure do
   DataMapper::setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/recall.db")
   DataMapper.finalize.auto_upgrade!
   DataMapper.auto_migrate!
+  use Rack::Session::Cookie, :secret => 'superdupersecret'
 end
 
 helpers do

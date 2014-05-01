@@ -2,7 +2,7 @@
 %html{:lang => "en"}
 %head
   %meta{:charset => "utf8"}
-  %title= @title + ' | Recall'
+  %title= 'Recall'
   %link{:href => "/reset.css", :rel => "stylesheet"}
   %link{:href => "/style.css", :rel => "stylesheet"}
 
@@ -21,6 +21,10 @@
   - if flash[:error]
     %p.error
       = flash[:error]
+  - if logged_in?
+    = "You are currently logged in as: " + current_user.email + " (<a href='/logout'>Logout</a>)"
+  - else
+    <a href="/login">Login</a> | <a href="/signup">Sign Up</a>
   = yield
 
   %footer

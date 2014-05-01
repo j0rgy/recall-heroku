@@ -5,6 +5,7 @@ gem 'sinatra'
 gem 'haml'
 gem 'data_mapper'
 gem 'sinatra-flash'
+gem 'sinatra-authentication'
 gem 'dm-postgres-adapter', :group => :production
 gem 'dm-sqlite-adapter', :group => :development
 
